@@ -46,6 +46,8 @@ def select_all(sql):
 
     return rows
 
+# Flaw 6. Exempts csrf
+# Solution: Don't exempt it. Remove @csrf_exempt
 @csrf_exempt
 def register_user(username, password1, password2, status):
     

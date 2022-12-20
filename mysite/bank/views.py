@@ -45,7 +45,7 @@ def login(request):
 # @login_required 
 def account_information(request):
     # Flaw 4. Broken Access Control
-    # This flaw consits of no check that user who calls this method is actually an admin.
+    # This flaw consits of no check that user who calls this method is actually a superuser.
     # Although there is no button to click to call this function currently it can still be hardwritten into the url: /account_information
     # Second Fix: Implement admin check before querying for accounts.
     # if request.user.is_superuser:
