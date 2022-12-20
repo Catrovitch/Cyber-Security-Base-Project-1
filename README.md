@@ -13,7 +13,7 @@ The application which I have developed is the beginning to an online banking ser
 
 #### Flaws
 
-- Flaw 1: CSRF flaw. When registering an account there is a vulnerability of SQL-injection.
+- Flaw 1: SQL-injection . When registering an account there is a vulnerability of SQL-injection.
   - Solution: Parameterize all user inputed data.
 
 - Flaw 2: Identification and Authentication Failures. When checking the passwords given when creating an account there should also be some encryption done. This is not the case.
@@ -32,6 +32,9 @@ The application which I have developed is the beginning to an online banking ser
 - Flaw 5: Security Misconfiguration. Specifically: Default accounts and their passwords are still enabled and unchanged.
   - Solution: Default test accounts with very simple passwords have not been removed.
   
+- Flaw 6: Csrf vulnerability. This is not present in the OWASP top 10 list, but is still a vulnerabiltiy. The reason that this is not found on the list is that many modern frameworks take care of this automatically. I must admit I really struggled to cause this flaw, and really what I did was just exempted it with a function which can be used for that reason.
+
+Sollution: Don’t exempt it.
 ## Installing Instructions
 
 - Clone the repository to your local machine
