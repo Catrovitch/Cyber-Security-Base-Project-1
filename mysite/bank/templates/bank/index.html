@@ -1,0 +1,54 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<title>Online Course Website</title>
+<div class="container">
+  <nav class="navbar navbar-expand-sm navbar-light">
+    <a class="navbar-brand" href="/">Banking Service</a>
+  </nav>
+  <div class="row">
+    <div class="col-8">
+      <h1>Welcome to a flawed banking service</h1>
+      <p>
+        This application has been developed to demonstrate five crucial cyber-security issues.
+      </p>
+
+      {% if accounts %}
+        {% for account in accounts %}
+          <ul>
+            <li>
+              {{ account }}
+            </li>
+          </ul>
+        {% endfor %}
+      {% endif %}
+
+    
+    </div>
+    <div class="col-4">
+      <h4>User</h4>
+      <p>                
+        {% if session.user_id %}
+          <p>You are logged in as {{ user }}</p>
+          <a href="/logout" class="btn btn-primary" >Logout</a>
+        {% else %}
+          <form action="/login" method="post">
+
+              <div class="form-group col-6">
+                <label for="inputUsername">Username</label>
+                <input type="text" class="form-control" id="inputUsername" name="username">
+              </div>
+              <div class="form-group col-6">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" name="password">
+              </div>
+              <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+              <div class="form-group col-6">
+                <input type="submit" class="btn btn-primary" value="Login">
+              </div>
+            <a href="/register" class="btn btn-primary" >Register</a>
+          </form>
+        {% endif %}
+    </div>
+  </div>
+</div>
